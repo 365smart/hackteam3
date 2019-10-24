@@ -1,25 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  HashRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+import { LobbyPage, QuizPage } from './Screens';
+import styled from 'styled-components';
+
+const Global = styled.div`
+  height: 100vh;
+  width: 100vw;
+  background: -moz-linear-gradient(-45deg, #2555d9 0%, #00bf6f 100%);
+  background: -webkit-linear-gradient(-45deg, #2555d9 0%,#00bf6f 100%);
+  background: linear-gradient(135deg, #2555d9 0%,#00bf6f;
+  display: flex;
+  color: white;
+  * {
+    font-family: 'Montserrat', sans-serif!important;
+  }
+`;
+
+function Lobby() {
+  return <LobbyPage/>;
+}
+
+function Quiz() {
+  return <QuizPage/>
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Global>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Lobby />
+          </Route>
+          <Route path="/quiz">
+            <Quiz />
+          </Route>
+        </Switch>
+      </Router>
+    </Global>
   );
 }
 
