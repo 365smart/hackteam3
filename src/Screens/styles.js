@@ -26,6 +26,7 @@ const Logo = styled.img`
 const Label = styled.label`
   line-height: 32px;
   font-size: 24px;
+  font-weight: 400;
 `;
 
 const Input = styled.input`
