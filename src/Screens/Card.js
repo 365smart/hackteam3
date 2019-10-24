@@ -59,7 +59,7 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timer: 30,
+      timer: 5,
       myAnswer: null,
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
@@ -112,8 +112,8 @@ class Card extends React.Component {
         <Timer>{timer}</Timer>
         <Question>{question}</Question>
         {answers.map((answer, i) => {
-            const fade = myAnswer === i && myAnswer === correctAnswer;
-            const wrong = myAnswer === i && myAnswer !== correctAnswer;
+            const fade = myAnswer === i;
+            const wrong = timer === 0 && myAnswer === i && myAnswer !== correctAnswer;
             return <Answer disabled={myAnswer != null} fade={fade} wrong={wrong} onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
         })}
       </QuestionCard>
