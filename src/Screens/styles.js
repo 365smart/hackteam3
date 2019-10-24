@@ -116,6 +116,8 @@ const RoundButton = styled(LinkButton)`
   bottom: 16px;
   right: 16px;
   line-height: 1;
+  font-size: 32px;
+  padding-top: 2px;
 `
 
 export {
