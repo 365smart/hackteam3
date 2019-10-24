@@ -38,27 +38,9 @@ const Question = styled.div`
 const Answer = styled.button`
   width: calc(100% - 16px);
   border-radius: 45px;
-  background: ${props => {
-    let value = '#EAEAEB';
-    if (props.wrong) {
-      value = '#D13F4B';
-    }
-    if (props.right) {
-      value = 'green';
-    }
-    return value;
-  }}
-  color: ${props => {
-    let value = '#22212D';
-    if (props.wrong) {
-      value = '#FFF';
-    }
-    if (props.right) {
-      value = '#FFF';
-    }
-    return value;
-  }}
-  opacity: ${props => props.fade ? '.5' : '1'}
+  background: ${props => props.wrong ? '#D13F4B' : props.right ? '#00BF6F' : '#EAEAEB'}
+  color: ${props => props.wrong ? '#FFF' : props.right ? '#FFF' : '#22212D'}
+  opacity: ${props => props.right ? '.5' : '1'}
   height: 48px;
   line-height: 48px;
   padding: 0px 16px;

@@ -8,10 +8,11 @@ const Row = styled.div`
   flex-direction: row;
   max-width: 420px;
   width: 100%;
-  margin: 8px;
+  margin: 0px 8px;
   height: 32px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   padding-bottom: 8px;
+  padding-top: 8px;
 `;
 
 const Group = styled.div`
