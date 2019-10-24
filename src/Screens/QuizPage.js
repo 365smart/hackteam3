@@ -13,14 +13,14 @@ class QuizPage extends React.Component {
     const users = 4;
     const points = "1,000";
     const quiz = {
-      question: "What was the most purchased product this month?",
+      question: "What former Franciscan mission was laid siege to over 13 day period in 1836?",
       answers: [
-        "Coke",
-        "Monster Energy",
-        "Pepsi",
-        "Snapple",
+        "A. Chapel De la Sacramente",
+        "B. The Alamo",
+        "C. The Vera Pierre",
+        "D. Ultima Verdardi",
       ],
-      correctAnswer: 0
+      correctAnswer: 1, // B
     };
 
     return (
