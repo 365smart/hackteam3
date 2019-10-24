@@ -16,6 +16,7 @@ class QuizPage extends React.Component {
         <Card
         users="4"
         points="1,000"
+        question="What was the most purchased product this month?"
         answer1="Coke"
         answer2="Monster Energy"
         answer3="Pepsi"

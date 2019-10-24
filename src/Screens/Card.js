@@ -38,8 +38,9 @@ const Question = styled.div`
 const Answer = styled.button`
   width: calc(100% - 16px);
   border-radius: 45px;
-  background: #EAEAEB;
-  color: #22212D;
+  background: ${props => props.wrong ? '#D13F4B' : '#EAEAEB'}
+  color: ${props => props.wrong ? '#FFF' : '#22212D'}
+  opacity: ${props => props.fade ? '.5' : '1'}
   height: 48px;
   line-height: 48px;
   padding: 0px 16px;
@@ -72,11 +73,11 @@ class Card extends React.Component {
           <div>{points} points</div>
         </TopSection>
         <Timer>30</Timer>
-        <Question>What was the most purchased item in your office this month?</Question>
+        <Question>{question}</Question>
           <Answer>{answer1}</Answer>
           <Answer>{answer2}</Answer>
-          <Answer>{answer3}</Answer>
-          <Answer>{answer4}</Answer>
+          <Answer fade>{answer3}</Answer>
+          <Answer wrong>{answer4}</Answer>
       </QuestionCard>
     );
   }
