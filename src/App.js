@@ -52,7 +52,7 @@ function App() {
           <Route path="/results">
             <Results />
           </Route>
-          <Route path="/leaders">
+          <Route path="/leaderboard">
             <Leaders />
           </Route>
         </Switch>

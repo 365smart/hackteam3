@@ -1,42 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import LeaderRow from './LeaderRow';
 
 import {
   Container,
   Header,
-  Logo,
-  Input,
-  Label,
   LinkButton,
   Countdown
 } from './styles';
 
-class LobbyPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-
-  }
-
-  componentDidMount() {
-
-  }
-
-
-
-  handleDoneClick() {
-
-  }
-
+class ResultsPage extends React.Component {
   render() {
-    const { name, done, countdownSec } = this.state;
     return (
       <Container>
-        <Header><span role='img' alt="up">👍</span> You did it!</Header>
+        <Header><span role='img' aria-label="up">👍</span> You did it!</Header>
         <Countdown>1st</Countdown>
         <Header>10,000 points</Header>
         <Header>Leaderboard</Header>
@@ -51,4 +27,4 @@ class LobbyPage extends React.Component {
   }
 }
 
-export default LobbyPage
+export default ResultsPage

@@ -7,7 +7,9 @@ import {
   Input,
   Label,
   Button,
-  Countdown
+  Countdown,
+  LinkButton,
+  Footer
 } from './styles';
 
 function toMMSS(seconds) {
@@ -69,9 +71,9 @@ class LobbyPage extends React.Component {
     return (
       <Container>
         {!done ?
-          <Header>Welcome! <span role='img' alt="up">👋</span></Header>
+          <Header>Welcome! <span role='img' aria-label="up">👋</span></Header>
           :
-          <Header>Welcome back, {name}! <span role='img' alt="up">👋</span></Header>
+          <Header>Welcome back, {name}! <span role='img' aria-label="up">👋</span></Header>
         }
         <Logo src="whitelogo.png" />
         {!done ?
@@ -87,6 +89,9 @@ class LobbyPage extends React.Component {
           </React.Fragment>
         }
         <Link to="/quiz/1">Quiz Page</Link>
+        <Footer>
+          <LinkButton to="/">Leaderboard</LinkButton>
+        </Footer>
       </Container>
     );
   }

@@ -106,6 +106,12 @@ const LinkButton = styled(Link)`
   line-height: 48px;
 `;
 
+const Footer = styled.div`
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+`;
+
 export {
   Container,
   Header,
@@ -115,5 +121,6 @@ export {
   Button,
   Countdown,
   QuestionCard,
-  LinkButton
+  LinkButton,
+  Footer
 }
