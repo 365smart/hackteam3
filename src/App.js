@@ -46,9 +46,7 @@ function App() {
           <Route exact path="/">
             <Lobby />
           </Route>
-          <Switch>
-            <Route path="/quiz/:id" children={<Quiz />} />
-          </Switch>>
+          <Route path="/quiz/:id" children={<Quiz />} />
           <Route path="/results">
             <Results />
           </Route>
