@@ -11,8 +11,8 @@ const Container = styled.div`
 const Header = styled.div`
   width: 100%;
   font-size: 24px;
-  height: 64px;
-  line-height: 64px;
+  height: 48px;
+  line-height: 48px;
   text-align: center;
 `;
 
@@ -30,7 +30,7 @@ const Label = styled.label`
 const Input = styled.input`
   height: 48px;
   background: white;
-  color: black;
+  color: #22212D;
   font-size: 24px;
   text-align: center;
   border: none;
@@ -47,7 +47,7 @@ const Input = styled.input`
 const Button = styled.button`
   border-radius: 45px;
   height: 48px;
-  background: black;
+  background: #22212D;
   color: white;
   font-size: 24px;
   text-align: center;
@@ -68,6 +68,19 @@ const Countdown = styled.div`
   line-height: 96px;
 `;
 
+const QuestionCard = styled.div`
+  background: white;
+  padding: 16px;
+  border-radius: 16px;
+  width: calc(100% - 48px);
+  display: flex;
+  margin: 16px;
+  height: auto;
+  align-items: center;
+  flex-direction: column;
+  max-width: 480px;
+`;
+
 export {
   Container,
   Header,
@@ -75,5 +88,6 @@ export {
   Label,
   Input,
   Button,
-  Countdown
+  Countdown,
+  QuestionCard
 }
