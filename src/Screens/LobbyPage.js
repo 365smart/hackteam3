@@ -11,15 +11,40 @@ import {
   Countdown
 } from './styles';
 
+function toMMSS(seconds) {
+  let mm = parseInt(seconds / 60);
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+  const ss = seconds % 60;
+  return `${mm}:${ss}`
+}
+
 class LobbyPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
       done: false,
+      countdownSec: 10 * 60,
     };
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.countdown();
+  }
+
+  countdown() {
+    let { countdownSec } = this.state;
+    setTimeout(() => {
+      countdownSec = countdownSec - 1;
+      this.setState({ countdownSec });
+      if (countdownSec) {
+        this.countdown();
+      }
+    }, 1000);
   }
 
   handleNameChange(event) {
@@ -35,11 +60,12 @@ class LobbyPage extends React.Component {
   }
 
   render() {
-    const { name, done } = this.state;
+    const { name, done, countdownSec } = this.state;
+    const countdown = toMMSS(countdownSec);
     return (
       <Container>
         <Header>Welcome!</Header>
-        <Logo src="whitelogo.png"/>
+        <Logo src="whitelogo.png" />
         {!done ?
           <React.Fragment>
             <Label>Enter your name</Label>
@@ -49,7 +75,7 @@ class LobbyPage extends React.Component {
           :
           <React.Fragment>
             <Label>Starting in</Label>
-            <Countdown>10:00</Countdown>
+            <Countdown>{countdown}</Countdown>
           </React.Fragment>
         }
         <Link to="/quiz">Quiz Page</Link>
