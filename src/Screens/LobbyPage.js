@@ -41,16 +41,16 @@ class LobbyPage extends React.Component {
         <Header>Welcome!</Header>
         <Logo src="whitelogo.png"/>
         {!done ?
-          <div>
+          <React.Fragment>
             <Label>Enter your name</Label>
             <Input onChange={this.handleNameChange} />
             <Button onClick={this.handleNextClick}>Next</Button>
-          </div>
+          </React.Fragment>
           :
-          <div>
+          <React.Fragment>
             <Label>Starting in</Label>
             <Countdown>10:00</Countdown>
-          </div>
+          </React.Fragment>
         }
         <Link to="/quiz">Quiz Page</Link>
       </Container>
