@@ -68,7 +68,11 @@ class LobbyPage extends React.Component {
     const countdown = toMMSS(countdownSec);
     return (
       <Container>
-        <Header>Welcome!</Header>
+        {!done ?
+          <Header>Welcome! <span role='img' alt="up">👋</span></Header>
+          :
+          <Header>Welcome back, {name}! <span role='img' alt="up">👋</span></Header>
+        }
         <Logo src="whitelogo.png" />
         {!done ?
           <React.Fragment>

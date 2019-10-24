@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 
-import { LobbyPage, QuizPage, ResultsPage } from './Screens';
+import { LobbyPage, QuizPage, ResultsPage, Leaderboard } from './Screens';
 import styled from 'styled-components';
 
 const Global = styled.div`
@@ -34,6 +34,10 @@ function Results() {
   return <ResultsPage/>
 }
 
+function Leaders() {
+  return <Leaderboard/>
+}
+
 function App() {
   return (
     <Global>
@@ -47,6 +51,9 @@ function App() {
           </Route>
           <Route path="/results">
             <Results />
+          </Route>
+          <Route path="/leaders">
+            <Leaders />
           </Route>
         </Switch>
       </Router>

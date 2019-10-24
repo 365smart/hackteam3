@@ -21,6 +21,7 @@ const Logo = styled.img`
   height: 160px;
   width: 160px;
   margin-bottom: 40px;
+  margin-top: 16px;
 `;
 
 const Label = styled.label`
@@ -44,6 +45,8 @@ const Input = styled.input`
   margin: 8px 16px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif!important;
+  box-sizing: border-box;
+  text-transform: capitalize;
 `;
 
 const Button = styled.button`

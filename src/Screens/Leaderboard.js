@@ -13,7 +13,7 @@ import {
   Countdown
 } from './styles';
 
-class LobbyPage extends React.Component {
+class Leaderboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,19 +36,16 @@ class LobbyPage extends React.Component {
     const { name, done, countdownSec } = this.state;
     return (
       <Container>
-        <Header><span role='img' alt="up">👍</span> You did it!</Header>
-        <Countdown>1st</Countdown>
-        <Header>10,000 points</Header>
-        <Header>Leaderboard</Header>
+        <Header><span role='img' alt="trophy">🏆</span> Leaderboard</Header>
         <LeaderRow place="1st" name="Aung" points="10,000"/>
         <LeaderRow place="2nd" name="Chris" points="9,000"/>
         <LeaderRow place="3rd" name="EJ" points="8,000"/>
         <LeaderRow place="4th" name="Ron" points="7,000"/>
         <br/>
-        <LinkButton to="/">Done</LinkButton>
+        <LinkButton to="/">Back</LinkButton>
       </Container>
     );
   }
 }
 
-export default LobbyPage
+export default Leaderboard
