@@ -59,7 +59,8 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timer: 30
+      timer: 30,
+      myAnswer: null,
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
   }
@@ -89,20 +90,18 @@ class Card extends React.Component {
     } else {
       console.log('wrong answer');
     }
+    this.setState({myAnswer: value});
   }
 
   render() {
     const {
       users,
       points,
-      question,
-      answer1,
-      answer2,
-      answer3,
-      answer4,
+      quiz,
     } = this.props;
 
-    const { timer } = this.state;
+    const { answers, question, correctAnswer } = quiz;
+    const { timer, myAnswer } = this.state;
 
     return (
       <QuestionCard>
@@ -112,10 +111,11 @@ class Card extends React.Component {
         </TopSection>
         <Timer>{timer}</Timer>
         <Question>{question}</Question>
-          <Answer onClick={this.handleAnswerClick.bind(this, 1)}>{answer1}</Answer>
-          <Answer onClick={this.handleAnswerClick.bind(this, 2)}>{answer2}</Answer>
-          <Answer onClick={this.handleAnswerClick.bind(this, 3)}>{answer3}</Answer>
-          <Answer onClick={this.handleAnswerClick.bind(this, 4)}>{answer4}</Answer>
+        {answers.map((answer, i) => {
+            const fade = myAnswer === i && myAnswer === correctAnswer;
+            const wrong = myAnswer === i && myAnswer !== correctAnswer;
+            return <Answer disabled={myAnswer != null} fade={fade} wrong={wrong} onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
+        })}
       </QuestionCard>
     );
   }

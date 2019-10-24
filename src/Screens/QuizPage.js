@@ -10,18 +10,26 @@ import {
 
 class QuizPage extends React.Component {
   render() {
+    const users = 4;
+    const points = "1,000";
+    const quiz = {
+      question: "What was the most purchased product this month?",
+      answers: [
+        "Coke",
+        "Monster Energy",
+        "Pepsi",
+        "Snapple",
+      ],
+      correctAnswer: 0
+    };
+
     return (
       <Container>
         <Header>Question 1</Header>
         <Card
-        users="4"
-        points="1,000"
-        question="What was the most purchased product this month?"
-        answer1="Coke"
-        answer2="Monster Energy"
-        answer3="Pepsi"
-        answer4="Snapple"
-        correctAnswer={1}
+          users={users}
+          points={points}
+          quiz={quiz}
         ></Card>
         <Link to="/">About</Link>
       </Container>
