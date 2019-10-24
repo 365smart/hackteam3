@@ -40,7 +40,7 @@ const Answer = styled.button`
   border-radius: 45px;
   background: ${props => props.wrong ? '#D13F4B' : props.right ? '#00BF6F' : '#EAEAEB'}
   color: ${props => props.wrong ? '#FFF' : props.right ? '#FFF' : '#22212D'}
-  opacity: ${props => props.right ? '.5' : '1'}
+  opacity: ${props => props.pick ? '.5' : '1'}
   height: 48px;
   line-height: 48px;
   padding: 0px 16px;
@@ -116,9 +116,9 @@ class Card extends React.Component {
         {answers.map((answer, i) => {
           const wrong = timer === 0 && myAnswer === i && myAnswer !== correctAnswer;
           const right = timer === 0 && i === correctAnswer;
-          const fade = timer !== 0 && i === myAnswer;
+          const pick = timer !== 0 && i === myAnswer;
           return <Answer
-            disabled={myAnswer != null} fade={fade} wrong={wrong} right={right}
+            disabled={myAnswer != null} pick={pick} wrong={wrong} right={right}
             onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
         })}
       </QuestionCard>
