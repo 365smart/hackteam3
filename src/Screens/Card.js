@@ -56,6 +56,41 @@ const Answer = styled.button`
 `;
 
 class Card extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      timer: 30
+    }
+    this.handleAnswerClick = this.handleAnswerClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.countdown();
+  }
+
+  countdown() {
+    let { timer } = this.state;
+    setTimeout(() => {
+      timer = timer - 1;
+      this.setState({timer});
+      if (timer) {
+        this.countdown();
+      } else {
+
+      }
+    }, 1000)
+  }
+
+  handleAnswerClick(value) {
+    console.log(`answer ${value} click`)
+    const { correctAnswer } = this.props;
+    if (value === correctAnswer) {
+      console.log('correct answer');
+    } else {
+      console.log('wrong answer');
+    }
+  }
+
   render() {
     const {
       users,
@@ -64,20 +99,23 @@ class Card extends React.Component {
       answer1,
       answer2,
       answer3,
-      answer4
+      answer4,
     } = this.props;
+
+    const { timer } = this.state;
+
     return (
       <QuestionCard>
         <TopSection>
           <div>{users} users</div>
           <div>{points} points</div>
         </TopSection>
-        <Timer>30</Timer>
+        <Timer>{timer}</Timer>
         <Question>{question}</Question>
-          <Answer>{answer1}</Answer>
-          <Answer>{answer2}</Answer>
-          <Answer fade>{answer3}</Answer>
-          <Answer wrong>{answer4}</Answer>
+          <Answer onClick={this.handleAnswerClick.bind(this, 1)}>{answer1}</Answer>
+          <Answer onClick={this.handleAnswerClick.bind(this, 2)}>{answer2}</Answer>
+          <Answer onClick={this.handleAnswerClick.bind(this, 3)}>{answer3}</Answer>
+          <Answer onClick={this.handleAnswerClick.bind(this, 4)}>{answer4}</Answer>
       </QuestionCard>
     );
   }

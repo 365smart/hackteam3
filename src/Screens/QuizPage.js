@@ -21,6 +21,7 @@ class QuizPage extends React.Component {
         answer2="Monster Energy"
         answer3="Pepsi"
         answer4="Snapple"
+        correctAnswer={1}
         ></Card>
         <Link to="/">About</Link>
       </Container>
