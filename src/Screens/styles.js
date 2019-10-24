@@ -62,6 +62,11 @@ const Button = styled.button`
   font-family: 'Montserrat', sans-serif!important;
 `;
 
+const Countdown = styled.div`
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 96px;
+`;
 
 export {
   Container,
@@ -69,5 +74,6 @@ export {
   Logo,
   Label,
   Input,
-  Button
+  Button,
+  Countdown
 }
