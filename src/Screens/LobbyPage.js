@@ -82,7 +82,7 @@ class LobbyPage extends React.Component {
             <Countdown>{countdown}</Countdown>
           </React.Fragment>
         }
-        <Link to="/quiz">Quiz Page</Link>
+        <Link to="/quiz/1">Quiz Page</Link>
       </Container>
     );
   }

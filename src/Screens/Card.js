@@ -38,8 +38,26 @@ const Question = styled.div`
 const Answer = styled.button`
   width: calc(100% - 16px);
   border-radius: 45px;
-  background: ${props => props.wrong ? '#D13F4B' : '#EAEAEB'}
-  color: ${props => props.wrong ? '#FFF' : '#22212D'}
+  background: ${props => {
+    let value = '#EAEAEB';
+    if (props.wrong) {
+      value = '#D13F4B';
+    }
+    if (props.right) {
+      value = 'green';
+    }
+    return value;
+  }}
+  color: ${props => {
+    let value = '#22212D';
+    if (props.wrong) {
+      value = '#FFF';
+    }
+    if (props.right) {
+      value = '#FFF';
+    }
+    return value;
+  }}
   opacity: ${props => props.fade ? '.5' : '1'}
   height: 48px;
   line-height: 48px;
@@ -73,7 +91,7 @@ class Card extends React.Component {
     let { timer } = this.state;
     setTimeout(() => {
       timer = timer - 1;
-      this.setState({timer});
+      this.setState({ timer });
       if (timer) {
         this.countdown();
       } else {
@@ -90,7 +108,7 @@ class Card extends React.Component {
     } else {
       console.log('wrong answer');
     }
-    this.setState({myAnswer: value});
+    this.setState({ myAnswer: value });
   }
 
   render() {
@@ -109,12 +127,17 @@ class Card extends React.Component {
           <div>{users} users</div>
           <div>{points} points</div>
         </TopSection>
-        <Timer>{timer}</Timer>
+        {timer === 0 && myAnswer === correctAnswer && <Timer>right</Timer>}
+        {timer === 0 && myAnswer !== correctAnswer && <Timer>wrong</Timer>}
+        {timer > 0 && <Timer>{timer}</Timer>}
         <Question>{question}</Question>
         {answers.map((answer, i) => {
-            const fade = myAnswer === i;
-            const wrong = timer === 0 && myAnswer === i && myAnswer !== correctAnswer;
-            return <Answer disabled={myAnswer != null} fade={fade} wrong={wrong} onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
+          const wrong = timer === 0 && myAnswer === i && myAnswer !== correctAnswer;
+          const right = timer === 0 && i === correctAnswer;
+          const fade = timer !== 0 && i === myAnswer;
+          return <Answer
+            disabled={myAnswer != null} fade={fade} wrong={wrong} right={right}
+            onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
         })}
       </QuestionCard>
     );

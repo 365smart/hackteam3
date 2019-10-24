@@ -42,9 +42,9 @@ function App() {
           <Route exact path="/">
             <Lobby />
           </Route>
-          <Route path="/quiz">
-            <Quiz />
-          </Route>
+          <Switch>
+            <Route path="/quiz/:id" children={<Quiz />} />
+          </Switch>>
           <Route path="/results">
             <Results />
           </Route>

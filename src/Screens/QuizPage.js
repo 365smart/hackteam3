@@ -20,7 +20,7 @@ class QuizPage extends React.Component {
         "C. The Vera Pierre",
         "D. Ultima Verdardi",
       ],
-      correctAnswer: 1, // B
+      correctAnswer: 1
     };
 
     return (
