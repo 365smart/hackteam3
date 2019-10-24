@@ -16,7 +16,10 @@ function toMMSS(seconds) {
   if (mm < 10) {
     mm = '0' + mm
   }
-  const ss = seconds % 60;
+  let ss = seconds % 60;
+  if (ss < 10) {
+    ss = '0' + ss
+  }
   return `${mm}:${ss}`
 }
 
