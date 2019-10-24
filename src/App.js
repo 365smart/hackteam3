@@ -18,6 +18,7 @@ const Global = styled.div`
   color: white;
   * {
     font-family: 'Montserrat', sans-serif!important;
+    box-sizing: border-box;
   }
 `;
 
