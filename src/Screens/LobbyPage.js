@@ -8,8 +8,7 @@ import {
   Label,
   Button,
   Countdown,
-  LinkButton,
-  Footer
+  RoundButton,
 } from './styles';
 
 function toMMSS(seconds) {
@@ -89,9 +88,7 @@ class LobbyPage extends React.Component {
           </React.Fragment>
         }
         <Link to="/quiz/1">Quiz Page</Link>
-        <Footer>
-          <LinkButton to="/">Leaderboard</LinkButton>
-        </Footer>
+        <RoundButton to="/leaders"><span role="img" aria-label="trophy">🏆</span></RoundButton>
       </Container>
     );
   }

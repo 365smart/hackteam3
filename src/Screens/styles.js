@@ -106,11 +106,17 @@ const LinkButton = styled(Link)`
   line-height: 48px;
 `;
 
-const Footer = styled.div`
+const RoundButton = styled(LinkButton)`
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   position: absolute;
-  bottom: 24px;
-  width: 100%;
-`;
+  bottom: 16px;
+  right: 16px;
+  line-height: 1;
+`
 
 export {
   Container,
@@ -122,5 +128,5 @@ export {
   Countdown,
   QuestionCard,
   LinkButton,
-  Footer
+  RoundButton,
 }
