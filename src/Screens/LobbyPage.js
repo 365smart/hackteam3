@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Container, Header, Logo, Input, Label, Button } from './styles';
+import {
+  Container,
+  Header,
+  Logo,
+  Input,
+  Label,
+  Button,
+  Countdown
+} from './styles';
 
 class LobbyPage extends React.Component {
   constructor(props) {
@@ -30,8 +38,8 @@ class LobbyPage extends React.Component {
     const { name, done } = this.state;
     return (
       <Container>
-        <Header>Lobby Page</Header>
-        <Logo src="whitelogo.png" />
+        <Header>Welcome!</Header>
+        <Logo src="whitelogo.png"/>
         {!done ?
           <div>
             <Label>Enter your name</Label>
@@ -39,7 +47,10 @@ class LobbyPage extends React.Component {
             <Button onClick={this.handleNextClick}>Next</Button>
           </div>
           :
-          <Label>{name}</Label>
+          <div>
+            <Label>Starting in</Label>
+            <Countdown>10:00</Countdown>
+          </div>
         }
         <Link to="/quiz">Quiz Page</Link>
       </Container>
