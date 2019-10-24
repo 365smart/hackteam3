@@ -46,6 +46,8 @@ class LobbyPage extends React.Component {
       this.setState({ countdownSec });
       if (countdownSec) {
         this.countdown();
+      } else {
+        console.log('todo: go to quizz page');
       }
     }, 1000);
   }
