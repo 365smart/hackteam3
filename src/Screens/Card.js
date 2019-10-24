@@ -38,9 +38,9 @@ const Question = styled.div`
 const Answer = styled.button`
   width: calc(100% - 16px);
   border-radius: 45px;
-  background: ${props => props.wrong ? '#D13F4B' : '#EAEAEB'}
-  color: ${props => props.wrong ? '#FFF' : '#22212D'}
-  opacity: ${props => props.fade ? '.5' : '1'}
+  background: ${props => props.wrong ? '#D13F4B' : props.right ? '#00BF6F' : '#EAEAEB'}
+  color: ${props => props.wrong ? '#FFF' : props.right ? '#FFF' : '#22212D'}
+  opacity: ${props => props.right ? '.5' : '1'}
   height: 48px;
   line-height: 48px;
   padding: 0px 16px;
@@ -112,9 +112,9 @@ class Card extends React.Component {
         <Timer>{timer}</Timer>
         <Question>{question}</Question>
         {answers.map((answer, i) => {
-            const fade = myAnswer === i;
+            const right = myAnswer === i;
             const wrong = timer === 0 && myAnswer === i && myAnswer !== correctAnswer;
-            return <Answer disabled={myAnswer != null} fade={fade} wrong={wrong} onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
+            return <Answer disabled={myAnswer != null} right={right} wrong={wrong} onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
         })}
       </QuestionCard>
     );
