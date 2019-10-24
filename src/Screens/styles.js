@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -81,6 +82,26 @@ const QuestionCard = styled.div`
   max-width: 480px;
 `;
 
+const LinkButton = styled(Link)`
+  border-radius: 45px;
+  height: 48px;
+  background: #22212D;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 45px;
+  width: 100%;
+  max-width: 420px;
+  margin: 8px 16px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif!important;
+  text-decoration: none;
+  line-height: 48px;
+`;
+
 export {
   Container,
   Header,
@@ -89,5 +110,6 @@ export {
   Input,
   Button,
   Countdown,
-  QuestionCard
+  QuestionCard,
+  LinkButton
 }

@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 
-import { LobbyPage, QuizPage } from './Screens';
+import { LobbyPage, QuizPage, ResultsPage } from './Screens';
 import styled from 'styled-components';
 
 const Global = styled.div`
@@ -30,6 +30,10 @@ function Quiz() {
   return <QuizPage/>
 }
 
+function Results() {
+  return <ResultsPage/>
+}
+
 function App() {
   return (
     <Global>
@@ -40,6 +44,9 @@ function App() {
           </Route>
           <Route path="/quiz">
             <Quiz />
+          </Route>
+          <Route path="/results">
+            <Results />
           </Route>
         </Switch>
       </Router>
