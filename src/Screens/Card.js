@@ -40,7 +40,7 @@ const Answer = styled.button`
   border-radius: 45px;
   background: ${props => props.wrong ? '#D13F4B' : props.right ? '#00BF6F' : '#EAEAEB'}
   color: ${props => props.wrong ? '#FFF' : props.right ? '#FFF' : '#22212D'}
-  opacity: ${props => props.right ? '.5' : '1'}
+  opacity: ${props => props.pick ? '.5' : '1'}
   height: 48px;
   line-height: 48px;
   padding: 0px 16px;
@@ -73,7 +73,7 @@ class Card extends React.Component {
     let { timer } = this.state;
     setTimeout(() => {
       timer = timer - 1;
-      this.setState({timer});
+      this.setState({ timer });
       if (timer) {
         this.countdown();
       } else {
@@ -90,7 +90,7 @@ class Card extends React.Component {
     } else {
       console.log('wrong answer');
     }
-    this.setState({myAnswer: value});
+    this.setState({ myAnswer: value });
   }
 
   render() {
@@ -109,12 +109,17 @@ class Card extends React.Component {
           <div>{users} users</div>
           <div>{points} points</div>
         </TopSection>
-        <Timer>{timer}</Timer>
+        {timer === 0 && myAnswer === correctAnswer && <Timer>right</Timer>}
+        {timer === 0 && myAnswer !== correctAnswer && <Timer>wrong</Timer>}
+        {timer > 0 && <Timer>{timer}</Timer>}
         <Question>{question}</Question>
         {answers.map((answer, i) => {
-            const right = myAnswer === i;
-            const wrong = timer === 0 && myAnswer === i && myAnswer !== correctAnswer;
-            return <Answer disabled={myAnswer != null} right={right} wrong={wrong} onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
+          const wrong = timer === 0 && myAnswer === i && myAnswer !== correctAnswer;
+          const right = timer === 0 && i === correctAnswer;
+          const pick = timer !== 0 && i === myAnswer;
+          return <Answer
+            disabled={myAnswer != null} pick={pick} wrong={wrong} right={right}
+            onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
         })}
       </QuestionCard>
     );
