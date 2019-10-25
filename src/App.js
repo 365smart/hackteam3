@@ -9,6 +9,7 @@ import {
 
 import { LobbyPage, QuizPage, ResultsPage, Leaderboard } from './Screens';
 import styled from 'styled-components';
+import ReactPlayer from 'react-player';
 
 const Global = styled.div`
   height: 100vh;
@@ -70,6 +71,7 @@ function App(props) {
           </Route>
         </Switch>
       </Router>
+      <ReactPlayer volume={.1} style={{opacity: '0', pointerEvents: 'none'}} url='https://www.youtube.com/watch?v=w64hc_uHysA' playing />
     </Global>
   );
 }

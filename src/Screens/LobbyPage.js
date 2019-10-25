@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
 
 import {
   Container,
@@ -38,7 +37,7 @@ class LobbyPage extends React.Component {
   }
 
   componentDidMount() {
-    this.countdown();
+
   }
 
   countdown() {
@@ -63,6 +62,7 @@ class LobbyPage extends React.Component {
 
   handleNextClick() {
     const { name } = this.state;
+    this.countdown();
     //console.log('next clicked ' + name);
     if (name) {
       this.setState({ done: true });
@@ -93,7 +93,6 @@ class LobbyPage extends React.Component {
             <Label>Starting in</Label>
             <Countdown>{countdown}</Countdown>
             <LinkButton to="/quiz/1" style={{opacity: '0'}}>Start Now</LinkButton>
-            <ReactPlayer volume={.1} style={{opacity: '0', pointerEvents: 'none'}} url='https://www.youtube.com/watch?v=w64hc_uHysA' playing />
         </React.Fragment>
         }
         <RoundButton to="/leaders"><span role="img" aria-label="trophy">🏆</span></RoundButton>
