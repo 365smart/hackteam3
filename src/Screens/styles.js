@@ -32,8 +32,8 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  height: 48px;
-  background: rgba(255,255,255,.75);
+  height: 64px;
+  background: white;
   color: #22212D;
   font-size: 24px;
   text-align: center;
@@ -43,20 +43,19 @@ const Input = styled.input`
   border-radius: 45px;
   width: 100%;
   max-width: 420px;
-  margin: 8px 16px;
+  margin: 16px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif!important;
   box-sizing: border-box;
   text-transform: capitalize;
   &:focus {
     box-shadow: 0 0 0 0.2rem #22212D;
-    background: white;
   }
 `;
 
 const Button = styled.button`
   border-radius: 45px;
-  height: 48px;
+  height: 64px;
   background: #22212D;
   color: white;
   font-size: 24px;
@@ -70,6 +69,10 @@ const Button = styled.button`
   margin: 8px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif!important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.24);
+  &:focus {
+    box-shadow: none;
+  }
 `;
 
 const Countdown = styled.div`
@@ -93,7 +96,7 @@ const QuestionCard = styled.div`
 
 const LinkButton = styled(Link)`
   border-radius: 45px;
-  height: 48px;
+  height: 64px;
   background: #22212D;
   color: white;
   font-size: 24px;
@@ -108,7 +111,11 @@ const LinkButton = styled(Link)`
   font-weight: 700;
   font-family: 'Montserrat', sans-serif!important;
   text-decoration: none;
-  line-height: 48px;
+  line-height: 64px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.24);
+  &:focus {
+    box-shadow: none;
+  }
 `;
 
 const RoundButton = styled(LinkButton)`
@@ -131,6 +138,7 @@ const SmallCard = styled(Container)`
   width: 100%;
   border-radius: 16px;
   padding: 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.24), 0 4px 4px rgba(0,0,0,0.12);
 
 `;
 

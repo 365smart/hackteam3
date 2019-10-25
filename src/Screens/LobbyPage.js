@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 
 import {
   Container,
@@ -30,7 +31,7 @@ class LobbyPage extends React.Component {
     this.state = {
       name: '',
       done: false,
-      countdownSec: 10 * 60,
+      countdownSec: 4 * 60,
     };
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -78,17 +79,17 @@ class LobbyPage extends React.Component {
         <Logo src="whitelogo.png" />
         {!done ?
           <React.Fragment>
-            <Label>Enter your name</Label>
-            <Input onChange={this.handleNameChange} />
+            <Label htmlfor="name">Enter your name</Label>
+            <Input id="name" onChange={this.handleNameChange} />
             <Button onClick={this.handleNextClick}>Next</Button>
           </React.Fragment>
           :
           <React.Fragment>
             <Label>Starting in</Label>
             <Countdown>{countdown}</Countdown>
+            <ReactPlayer controls={true} style={{opacity: '0'}} url='https://www.youtube.com/watch?v=w64hc_uHysA' playing />
           </React.Fragment>
         }
-        <Link to="/quiz/1">Quiz Page</Link>
         <RoundButton to="/leaders"><span role="img" aria-label="trophy">🏆</span></RoundButton>
       </Container>
     );

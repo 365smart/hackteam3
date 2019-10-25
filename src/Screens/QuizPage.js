@@ -6,6 +6,7 @@ import Card from './Card';
 import {
   Container,
   Header,
+  LinkButton
 } from './styles';
 
 
@@ -46,8 +47,7 @@ function QuizPage(props) {
         nextId={nextId}
         history={history}
       ></Card>
-      <Link to="/">About</Link>
-      {/* <Link to={"/quiz/" + nextId}>next</Link> */}
+      <LinkButton to={"/quiz/" + nextId}>Next Question</LinkButton>
     </Container>
   );
 }

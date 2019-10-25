@@ -25,7 +25,7 @@ const Timer = styled.div`
   border-radius: 45px;
   text-align: center;
   line-height: 64px;
-  margin-bottom: 8px;
+  margin: 8px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,6 +53,7 @@ const Answer = styled.button`
   border: none;
   font-size: 18px;
   text-align: left;
+  transition-duration: 500ms;
   &:focus {
     background: #22212D;
     color: white;
@@ -158,7 +159,7 @@ class Card extends React.Component {
             disabled={myAnswer != null} pick={pick} wrong={wrong} right={right}
             onClick={this.handleAnswerClick.bind(this, id)}>{answer.answer}</Answer>
         })}
-        {/* {showNext && <Button onClick={this.handleNextClick}>Next</Button>} */}
+        {showNext && <Button onClick={this.handleNextClick}>Next</Button>}
       </QuestionCard>
     );
   }
