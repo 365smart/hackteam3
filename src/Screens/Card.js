@@ -81,25 +81,25 @@ class Card extends React.Component {
     }, 1000)
   }
 
-  handleAnswerClick(value) {
-    console.log(`answer ${value} click`)
-    const { correctAnswer } = this.props;
-    if (value === correctAnswer) {
+  handleAnswerClick(id) {
+    console.log(`answer ${id} click`)
+    const { answerId } = this.props;
+    if (id === answerId) {
       console.log('correct answer');
     } else {
       console.log('wrong answer');
     }
-    this.setState({ myAnswer: value });
+    this.setState({ myAnswer: id });
   }
 
   render() {
     const {
       users,
       points,
-      quiz,
+      data,
     } = this.props;
 
-    const { answers, question, correctAnswer } = quiz;
+    const { answers, question, answerId } = data;
     const { timer, myAnswer } = this.state;
 
     return (
@@ -108,17 +108,19 @@ class Card extends React.Component {
           <div>{users} users</div>
           <div>{points} points</div>
         </TopSection>
-        {timer === 0 && myAnswer === correctAnswer && <Timer>right</Timer>}
-        {timer === 0 && myAnswer !== correctAnswer && <Timer>wrong</Timer>}
+
+        {timer === 0 && myAnswer === answerId && <Timer>right</Timer>}
+        {timer === 0 && myAnswer !== answerId && <Timer>wrong</Timer>}
         {timer > 0 && <Timer>{timer}</Timer>}
         <Question>{question}</Question>
-        {answers.map((answer, i) => {
-          const wrong = timer === 0 && myAnswer === i && myAnswer !== correctAnswer;
-          const right = timer === 0 && i === correctAnswer;
-          const pick = timer !== 0 && i === myAnswer;
+        {answers.map((answer) => {
+          const id = answer.id;
+          const wrong = timer === 0 && myAnswer === id && myAnswer !== answerId;
+          const right = timer === 0 && id === answerId;
+          const pick = timer !== 0 && id === myAnswer;
           return <Answer
             disabled={myAnswer != null} pick={pick} wrong={wrong} right={right}
-            onClick={this.handleAnswerClick.bind(this, i)}>{answer}</Answer>
+            onClick={this.handleAnswerClick.bind(this, id)}>{answer.answer}</Answer>
         })}
       </QuestionCard>
     );

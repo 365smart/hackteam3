@@ -22,23 +22,26 @@ const Global = styled.div`
   }
 `;
 
-function Lobby() {
-  return <LobbyPage/>;
+function Lobby(props) {
+  return <LobbyPage {...props}/>;
 }
 
-function Quiz() {
-  return <QuizPage/>
+function Quiz(props) {
+  console.log('Quiz: props', props);
+
+  return <QuizPage {...props}/>
 }
 
-function Results() {
-  return <ResultsPage/>
+function Results(props) {
+  return <ResultsPage {...props}/>
 }
 
-function Leaders() {
-  return <Leaderboard/>
+function Leaders(props) {
+  return <Leaderboard {...props}/>
 }
 
-function App() {
+function App(props) {
+  console.log('App: props', props);
   return (
     <Global>
       <Router>
@@ -46,7 +49,7 @@ function App() {
           <Route exact path="/">
             <Lobby />
           </Route>
-          <Route path="/quiz/:id" children={<Quiz />} />
+          <Route path="/quiz/:id" children={<Quiz {...props} />} />
           <Route path="/results">
             <Results />
           </Route>

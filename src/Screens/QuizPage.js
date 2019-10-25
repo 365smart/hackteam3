@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {
+  Link, useParams
+} from 'react-router-dom';
 import Card from './Card';
 
 import {
@@ -8,28 +10,32 @@ import {
 } from './styles';
 
 
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}
+
 class QuizPage extends React.Component {
   render() {
-    const users = 4;
-    const points = "1,000";
-    const quiz = {
-      question: "What former Franciscan mission was laid siege to over 13 day period in 1836?",
-      answers: [
-        "A. Chapel De la Sacramente",
-        "B. The Alamo",
-        "C. The Vera Pierre",
-        "D. Ultima Verdardi",
-      ],
-      correctAnswer: 1
-    };
+    console.log('QuizPage props', this.props)
+    // const { id } = useParams();
+    const id = 1;
+    const { users, points, quiz } = this.props;
+    const data = quiz.questions.find(q => q.id === id);
+    data.answers = quiz.answers.filter(a => a.questionId === id);
+    shuffleArray(data.answers);
 
     return (
       <Container>
-        <Header>Question 1</Header>
+        <Header>Question {id}</Header>
         <Card
           users={users}
           points={points}
-          quiz={quiz}
+          data={data}
         ></Card>
         <Link to="/">About</Link>
       </Container>
