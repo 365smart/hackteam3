@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  QuestionCard
+  QuestionCard,
+  Button,
 } from './styles';
 
 const TopSection = styled.div`
@@ -58,34 +59,61 @@ const Answer = styled.button`
   }
 `;
 
+// in seconds
+const DEFAULT_TIMER = 10;
+const WAIT_TIME = 5;
+
 class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timer: 5,
+      timer: DEFAULT_TIMER,
       myAnswer: null,
+      showNext: false,
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
+    this.handleNextClick = this.handleNextClick.bind(this);
   }
 
   componentDidMount() {
-    this.countdown();
+    this.countdownTimer();
   }
 
-  countdown() {
+  reset() {
+    this.setState({
+      showNext: false,
+      myAnswer: null,
+      timer: DEFAULT_TIMER,
+    }, () => {
+      this.countdownTimer();
+    });
+  }
+
+  countdownTimer() {
+    const { history, nextId } = this.props;
     let { timer } = this.state;
     setTimeout(() => {
       timer = timer - 1;
       this.setState({ timer });
       if (timer) {
-        this.countdown();
+        this.countdownTimer();
       } else {
-
+        setTimeout(() => {
+          history.push(`/quiz/${nextId}`);
+          this.reset();
+        }, WAIT_TIME * 1000);
       }
     }, 1000)
   }
 
+  handleNextClick() {
+    const { history, nextId } = this.props;
+    history.push(`/quiz/${nextId}`);
+    this.reset();
+  }
+
   handleAnswerClick(id) {
+    console.log('history', this.props.history)
     console.log(`answer ${id} click`)
     const { answerId } = this.props;
     if (id === answerId) {
@@ -94,17 +122,21 @@ class Card extends React.Component {
       console.log('wrong answer');
     }
     this.setState({ myAnswer: id });
+    // setTimeout(() => {
+    //   this.setState({showNext: true})
+    // }, WAIT_TIME * 1000);
   }
 
   render() {
     const {
       users,
       points,
-      data,
+      question,
+      answers,
     } = this.props;
 
-    const { answers, question, answerId } = data;
-    const { timer, myAnswer } = this.state;
+    const answerId = question.answerId;
+    const { timer, myAnswer, showNext } = this.state;
 
     return (
       <QuestionCard>
@@ -116,16 +148,17 @@ class Card extends React.Component {
         {timer === 0 && myAnswer === answerId && <Timer right><ion-icon name="checkmark"></ion-icon></Timer>}
         {timer === 0 && myAnswer !== answerId && <Timer wrong><ion-icon name="close"></ion-icon></Timer>}
         {timer > 0 && <Timer>{timer}</Timer>}
-        <Question>{question}</Question>
+        <Question>{question.question}</Question>
         {answers.map((answer) => {
           const id = answer.id;
           const wrong = timer === 0 && myAnswer === id && myAnswer !== answerId;
           const right = timer === 0 && id === answerId;
           const pick = timer !== 0 && id === myAnswer;
-          return <Answer
+          return <Answer key={answer.id}
             disabled={myAnswer != null} pick={pick} wrong={wrong} right={right}
             onClick={this.handleAnswerClick.bind(this, id)}>{answer.answer}</Answer>
         })}
+        {/* {showNext && <Button onClick={this.handleNextClick}>Next</Button>} */}
       </QuestionCard>
     );
   }

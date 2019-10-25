@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Link, useParams
+  Link, useParams, useHistory
 } from 'react-router-dom';
 import Card from './Card';
 import {
@@ -18,28 +18,38 @@ function shuffleArray(array) {
   }
 }
 
-class QuizPage extends React.Component {
-  render() {
-    console.log('QuizPage props', this.props)
-    // const { id } = useParams();
-    const id = 1;
-    const { users, points, quiz } = this.props;
-    const data = quiz.questions.find(q => q.id === id);
-    data.answers = quiz.answers.filter(a => a.questionId === id);
-    shuffleArray(data.answers);
 
-    return (
-      <Container>
-        <Header>Question {id} <span role='img' aria-label="up">🤔</span></Header>
-        <Card
-          users={users}
-          points={points}
-          data={data}
-        ></Card>
-      <Link to="/results">Results</Link>
-      </Container>
-    );
+function QuizPage(props) {
+  let { id } = useParams();
+  let history = useHistory();
+  id = parseInt(id);
+  // console.log('QuizPage', id,  props)
+  const { users, points, quiz } = props;
+  quiz.questions = quiz.questions || [];
+  quiz.answers = quiz.answers || [];
+  let question = quiz.questions.find(q => q.id === id) || {};
+  let answers = quiz.answers.filter(a => a.questionId === id) || [];
+  let nextId = id + 1;
+  if (nextId > quiz.questions.length) {
+    history.push('/results')
   }
+  shuffleArray(answers);
+
+  return (
+    <Container>
+      <Header>Question {id}</Header>
+      <Card
+        users={users}
+        points={points}
+        question={question}
+        answers={answers}
+        nextId={nextId}
+        history={history}
+      ></Card>
+      <Link to="/">About</Link>
+      {/* <Link to={"/quiz/" + nextId}>next</Link> */}
+    </Container>
+  );
 }
 
 export default QuizPage

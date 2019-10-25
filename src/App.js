@@ -2,7 +2,8 @@ import React from 'react';
 import {
   HashRouter as Router,
   Switch,
-  Route
+  useRouteMatch,
+  Route,
 } from "react-router-dom";
 
 import { LobbyPage, QuizPage, ResultsPage, Leaderboard } from './Screens';
@@ -25,21 +26,26 @@ const Global = styled.div`
 `;
 
 function Lobby(props) {
-  return <LobbyPage {...props}/>;
+  return <LobbyPage {...props} />;
 }
 
 function Quiz(props) {
   console.log('Quiz: props', props);
-
-  return <QuizPage {...props}/>
+  let match = useRouteMatch();
+  console.log('Quiz: match', match);
+  return (
+    <Switch>
+        <Route path="/quiz/:id" children={<QuizPage {...props} />} />
+    </Switch>
+  )
 }
 
 function Results(props) {
-  return <ResultsPage {...props}/>
+  return <ResultsPage {...props} />
 }
 
 function Leaders(props) {
-  return <Leaderboard {...props}/>
+  return <Leaderboard {...props} />
 }
 
 function App(props) {
@@ -51,7 +57,9 @@ function App(props) {
           <Route exact path="/">
             <Lobby />
           </Route>
-          <Route path="/quiz/:id" children={<Quiz {...props} />} />
+          <Route path="/quiz/:id">
+            <Quiz {...props} />
+          </Route>
           <Route path="/results">
             <Results />
           </Route>
