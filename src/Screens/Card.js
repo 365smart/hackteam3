@@ -37,7 +37,7 @@ const Question = styled.div`
   font-size: 18px;
   text-align: center;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 `;
 
 const Answer = styled.button`
@@ -134,6 +134,7 @@ class Card extends React.Component {
       points,
       question,
       answers,
+      name
     } = this.props;
 
     const answerId = question.answerId;

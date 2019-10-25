@@ -38,7 +38,7 @@ function QuizPage(props) {
 
   return (
     <Container>
-      <Header>Question {id}</Header>
+      <Header>Question {id} <span role='img' aria-label="think">🤔</span></Header>
       <Card
         users={users}
         points={points}
@@ -47,7 +47,7 @@ function QuizPage(props) {
         nextId={nextId}
         history={history}
       ></Card>
-      <LinkButton to={"/quiz/" + nextId}>Next Question</LinkButton>
+      {/* <LinkButton to={"/quiz/" + nextId}>Next Question</LinkButton>*/}
     </Container>
   );
 }

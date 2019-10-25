@@ -11,6 +11,7 @@ import {
   Button,
   Countdown,
   RoundButton,
+  LinkButton
 } from './styles';
 
 function toMMSS(seconds) {
@@ -80,15 +81,16 @@ class LobbyPage extends React.Component {
         {!done ?
           <React.Fragment>
             <Label htmlfor="name">Enter your name</Label>
-            <Input id="name" onChange={this.handleNameChange} />
+            <Input id="name" onChange={this.handleNameChange} autoFocus="autofocus"/>
             <Button onClick={this.handleNextClick}>Next</Button>
           </React.Fragment>
           :
           <React.Fragment>
             <Label>Starting in</Label>
             <Countdown>{countdown}</Countdown>
-            <ReactPlayer controls={true} style={{opacity: '0'}} url='https://www.youtube.com/watch?v=w64hc_uHysA' playing />
-          </React.Fragment>
+            <LinkButton to="/quiz/1" style={{opacity: '0'}}>Start Now</LinkButton>
+            <ReactPlayer volume={.1} style={{opacity: '0', pointerEvents: 'none'}} url='https://www.youtube.com/watch?v=w64hc_uHysA' playing />
+        </React.Fragment>
         }
         <RoundButton to="/leaders"><span role="img" aria-label="trophy">🏆</span></RoundButton>
       </Container>
