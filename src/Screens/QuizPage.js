@@ -3,7 +3,6 @@ import {
   Link, useParams
 } from 'react-router-dom';
 import Card from './Card';
-
 import {
   Container,
   Header,
@@ -37,7 +36,7 @@ class QuizPage extends React.Component {
           points={points}
           data={data}
         ></Card>
-        <Link to="/">About</Link>
+      <Link to="/results">Results</Link>
       </Container>
     );
   }

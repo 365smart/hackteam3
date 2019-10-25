@@ -11,18 +11,23 @@ const TopSection = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-size: 18px;
+  padding: 0px 16px;
 `;
 
 const Timer = styled.div`
-  background: #22212D;
+  background: ${props => props.wrong ? '#D13F4B' : props.right ? '#00BF6F' : '#22212D'}
   height: 64px;
   width: 64px;
   color: white;
-  font-size: 24px;
+  font-size: 32px;
   border-radius: 45px;
   text-align: center;
   line-height: 64px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Question = styled.div`
@@ -37,9 +42,8 @@ const Question = styled.div`
 const Answer = styled.button`
   width: calc(100% - 16px);
   border-radius: 45px;
-  background: ${props => props.wrong ? '#D13F4B' : props.right ? '#00BF6F' : '#EAEAEB'}
-  color: ${props => props.wrong ? '#FFF' : props.right ? '#FFF' : '#22212D'}
-  opacity: ${props => props.pick ? '.5' : '1'}
+  background: ${props => props.wrong ? '#D13F4B' : props.right ? '#00BF6F' : props.pick ? '#22212D' : '#EAEAEB' }
+  color: ${props => props.wrong ? '#FFF' : props.right ? '#FFF' : props.pick ? '#FFF' : '#22212D'}
   height: 48px;
   line-height: 48px;
   padding: 0px 16px;
@@ -109,8 +113,8 @@ class Card extends React.Component {
           <div>{points} points</div>
         </TopSection>
 
-        {timer === 0 && myAnswer === answerId && <Timer><ion-icon name="rocket"></ion-icon></Timer>}
-        {timer === 0 && myAnswer !== answerId && <Timer><ion-icon name="rocket"></ion-icon></Timer>}
+        {timer === 0 && myAnswer === answerId && <Timer right><ion-icon name="checkmark"></ion-icon></Timer>}
+        {timer === 0 && myAnswer !== answerId && <Timer wrong><ion-icon name="close"></ion-icon></Timer>}
         {timer > 0 && <Timer>{timer}</Timer>}
         <Question>{question}</Question>
         {answers.map((answer) => {

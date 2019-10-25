@@ -11,6 +11,8 @@ import styled from 'styled-components';
 const Global = styled.div`
   height: 100vh;
   width: 100vw;
+  position: fixed;
+  overflow-y: auto;
   background: -moz-linear-gradient(-45deg, #2555d9 0%, #00bf6f 100%);
   background: -webkit-linear-gradient(-45deg, #2555d9 0%,#00bf6f 100%);
   background: linear-gradient(135deg, #2555d9 0%,#00bf6f;
@@ -18,7 +20,7 @@ const Global = styled.div`
   color: white;
   * {
     font-family: 'Montserrat', sans-serif!important;
-    box-sizing: border-box;
+    box-sizing: border-box!important;
   }
 `;
 

@@ -6,7 +6,7 @@ const Container = styled.div`
   flex-direction: column;
   color: white;
   align-items: center;
-  padding: 8px;
+  padding: 16px;
 `;
 
 const Header = styled.div`
@@ -33,7 +33,7 @@ const Label = styled.label`
 
 const Input = styled.input`
   height: 48px;
-  background: white;
+  background: rgba(255,255,255,.75);
   color: #22212D;
   font-size: 24px;
   text-align: center;
@@ -50,7 +50,7 @@ const Input = styled.input`
   text-transform: capitalize;
   &:focus {
     box-shadow: 0 0 0 0.2rem #22212D;
-
+    background: white;
   }
 `;
 
@@ -67,7 +67,7 @@ const Button = styled.button`
   border-radius: 45px;
   width: 100%;
   max-width: 420px;
-  margin: 8px 16px;
+  margin: 8px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif!important;
 `;
@@ -82,7 +82,7 @@ const QuestionCard = styled.div`
   background: white;
   padding: 16px;
   border-radius: 16px;
-  width: calc(100% - 48px);
+  width: 100%;
   display: flex;
   margin: 16px;
   height: auto;
@@ -104,7 +104,7 @@ const LinkButton = styled(Link)`
   border-radius: 45px;
   width: 100%;
   max-width: 420px;
-  margin: 8px 16px;
+  margin: 8px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif!important;
   text-decoration: none;
@@ -126,11 +126,12 @@ const RoundButton = styled(LinkButton)`
 `
 const SmallCard = styled(Container)`
   background: white;
-  margin: 16px;
   max-width: 540px;
+  margin: 24px;
   width: 100%;
   border-radius: 16px;
-  padding: 32px 8px;
+  padding: 24px;
+
 `;
 
 export {

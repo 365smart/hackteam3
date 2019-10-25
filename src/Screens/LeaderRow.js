@@ -8,11 +8,8 @@ const Row = styled.div`
   flex-direction: row;
   max-width: 420px;
   width: 100%;
-  margin: 0px 8px;
-  height: 32px;
+  height: 48px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
-  padding-bottom: 8px;
-  padding-top: 8px;
 `;
 
 const Group = styled.div`
@@ -22,13 +19,13 @@ const Group = styled.div`
 
 const Name = styled.div`
   color: #22212D;
-  font-size: 18px;
+  font-size: 18px
   text-align: left;
 `;
 
 const Place = styled(Name)`
   font-weight: 700;
-  margin-right: 16px;
+  width: 56px;
 `;
 
 const Points = styled(Name)`
