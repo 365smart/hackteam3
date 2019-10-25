@@ -108,8 +108,8 @@ class Card extends React.Component {
           <div>{users} users</div>
           <div>{points} points</div>
         </TopSection>
-        {timer === 0 && myAnswer === correctAnswer && <Timer>right</Timer>}
-        {timer === 0 && myAnswer !== correctAnswer && <Timer>wrong</Timer>}
+        {timer === 0 && myAnswer === correctAnswer && <Timer><ion-icon name="rocket"></ion-icon></Timer>}
+        {timer === 0 && myAnswer !== correctAnswer && <Timer><ion-icon name="heart"></ion-icon></Timer>}
         {timer > 0 && <Timer>{timer}</Timer>}
         <Question>{question}</Question>
         {answers.map((answer, i) => {

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player'
+
 import {
   Container,
   Header,
@@ -85,6 +87,7 @@ class LobbyPage extends React.Component {
           <React.Fragment>
             <Label>Starting in</Label>
             <Countdown>{countdown}</Countdown>
+            <ReactPlayer style={{opacity: '0', userSelect: 'none'}} url='https://www.youtube.com/watch?v=Z6ih1aKeETk' playing />
           </React.Fragment>
         }
         <Link to="/quiz/1">Quiz Page</Link>

@@ -15,6 +15,7 @@ const Header = styled.div`
   height: 48px;
   line-height: 48px;
   text-align: center;
+  color: ${props => props.dark ? '#22212D' : '#FFF'}
 `;
 
 const Logo = styled.img`
@@ -47,6 +48,10 @@ const Input = styled.input`
   font-family: 'Montserrat', sans-serif!important;
   box-sizing: border-box;
   text-transform: capitalize;
+  &:focus {
+    box-shadow: 0 0 0 0.2rem #22212D;
+
+  }
 `;
 
 const Button = styled.button`
@@ -116,7 +121,17 @@ const RoundButton = styled(LinkButton)`
   bottom: 16px;
   right: 16px;
   line-height: 1;
+  font-size: 32px;
+  padding-top: 2px;
 `
+const SmallCard = styled(Container)`
+  background: white;
+  margin: 16px;
+  max-width: 540px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 32px 8px;
+`;
 
 export {
   Container,
@@ -129,4 +144,5 @@ export {
   QuestionCard,
   LinkButton,
   RoundButton,
+  SmallCard
 }

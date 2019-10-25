@@ -21,7 +21,7 @@ const Group = styled.div`
 `;
 
 const Name = styled.div`
-  color: white;
+  color: #22212D;
   font-size: 18px;
   text-align: left;
 `;

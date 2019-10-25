@@ -25,7 +25,7 @@ class QuizPage extends React.Component {
 
     return (
       <Container>
-        <Header>Question 1</Header>
+        <Header>Question 1 <span role='img' aria-label="up">🤔</span></Header>
         <Card
           users={users}
           points={points}
