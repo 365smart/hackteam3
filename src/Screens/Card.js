@@ -102,7 +102,7 @@ class Card extends React.Component {
         setTimeout(() => {
           if (question.answerId === myAnswer) {
             let score = parseInt(sessionStorage.getItem('player_score') || 0);
-            sessionStorage.setItem('player_score', score + 100);
+            sessionStorage.setItem('player_score', score + 1000);
           }
           history.push(`/quiz/${nextId}`);
           this.reset();

@@ -31,7 +31,7 @@ class LobbyPage extends React.Component {
     this.state = {
       name: '',
       done: false,
-      countdownSec: 4 * 60,
+      countdownSec: .5 * 60,
     };
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
