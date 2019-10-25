@@ -23,6 +23,12 @@ const Logo = styled.img`
   width: 160px;
   margin-bottom: 40px;
   margin-top: 16px;
+  @media (max-width: 767px){
+    height: 96px;
+    width: 96px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
 `;
 
 const Label = styled.label`
@@ -145,8 +151,8 @@ const RoundButton = styled(LinkButton)`
   @media (max-width: 500px){
     font-size: 24px;
     bottom: 80px;
-    height: 48px;
-    width: 48px;
+    height: 64px;
+    width: 64px;
   }
 `
 const SmallCard = styled(Container)`
