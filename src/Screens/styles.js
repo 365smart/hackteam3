@@ -7,6 +7,7 @@ const Container = styled.div`
   color: white;
   align-items: center;
   padding: 16px;
+  overflow-y: auto;
 `;
 
 const Header = styled.div`
@@ -148,17 +149,18 @@ const RoundButton = styled(LinkButton)`
   line-height: 1;
   font-size: 32px;
   padding-top: 2px;
-  @media (max-width: 500px){
+  @media (max-width: 767px){
     font-size: 24px;
     bottom: 80px;
     height: 64px;
     width: 64px;
+    right: 0px;
   }
 `
 const SmallCard = styled(Container)`
   background: white;
   max-width: 540px;
-  margin: 24px;
+  margin: 8px;
   width: 100%;
   border-radius: 16px;
   padding: 24px;
