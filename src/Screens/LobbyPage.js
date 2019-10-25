@@ -31,7 +31,7 @@ class LobbyPage extends React.Component {
     this.state = {
       name: '',
       done: false,
-      countdownSec: 4 * 60,
+      countdownSec: 4,
     };
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -66,6 +66,8 @@ class LobbyPage extends React.Component {
     //console.log('next clicked ' + name);
     if (name) {
       this.setState({ done: true });
+      sessionStorage.setItem('player_name', name);
+      sessionStorage.setItem('player_score', '0');
     }
   }
 

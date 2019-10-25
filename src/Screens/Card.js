@@ -91,8 +91,8 @@ class Card extends React.Component {
   }
 
   countdownTimer() {
-    const { history, nextId } = this.props;
-    let { timer } = this.state;
+    const { history, nextId, question } = this.props;
+    let { timer, myAnswer } = this.state;
     setTimeout(() => {
       timer = timer - 1;
       this.setState({ timer });
@@ -100,6 +100,10 @@ class Card extends React.Component {
         this.countdownTimer();
       } else {
         setTimeout(() => {
+          if (question.answerId === myAnswer) {
+            let score = parseInt(sessionStorage.getItem('player_score') || 0);
+            sessionStorage.setItem('player_score', score + 100);
+          }
           history.push(`/quiz/${nextId}`);
           this.reset();
         }, WAIT_TIME * 1000);
@@ -142,7 +146,7 @@ class Card extends React.Component {
       <QuestionCard>
         <TopSection>
           <div>{users} users</div>
-          <div>{points} points</div>
+          <div>{points.toLocaleString()} points</div>
         </TopSection>
 
         {timer === 0 && myAnswer === answerId && <Timer right><ion-icon name="checkmark"></ion-icon></Timer>}

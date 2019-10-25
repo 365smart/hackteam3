@@ -23,7 +23,7 @@ function QuizPage(props) {
   let history = useHistory();
   id = parseInt(id);
   // console.log('QuizPage', id,  props)
-  const { users, points, quiz } = props;
+  let { users, points, quiz } = props;
   quiz.questions = quiz.questions || [];
   quiz.answers = quiz.answers || [];
   let question = quiz.questions.find(q => q.id === id) || {};
@@ -33,6 +33,9 @@ function QuizPage(props) {
     history.push('/results')
   }
   shuffleArray(answers);
+
+  let playerScore = parseInt(sessionStorage.getItem('player_score') || 0);
+  points += playerScore;
 
   return (
     <Container>

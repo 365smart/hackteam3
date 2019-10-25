@@ -9,7 +9,8 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 data.users = getRandomInt(5, 10);
-data.points = getRandomInt(1000, 10000);
+data.points = getRandomInt(100, 1000) * 10;
+sessionStorage.setItem('player_score', data.points);
 
 ReactDOM.render(<App {...data} />, document.getElementById('root'));
 
