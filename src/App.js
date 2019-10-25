@@ -3,6 +3,7 @@ import {
   HashRouter as Router,
   Switch,
   useRouteMatch,
+  useHistory,
   Route,
 } from "react-router-dom";
 
@@ -26,7 +27,8 @@ const Global = styled.div`
 `;
 
 function Lobby(props) {
-  return <LobbyPage {...props} />;
+  const history = useHistory();
+  return <LobbyPage {...props} history={history} />;
 }
 
 function Quiz(props) {
@@ -55,16 +57,16 @@ function App(props) {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Lobby />
+            <Lobby {...props} />
           </Route>
           <Route path="/quiz/:id">
             <Quiz {...props} />
           </Route>
           <Route path="/results">
-            <Results />
+            <Results {...props} />
           </Route>
           <Route path="/leaders">
-            <Leaders />
+            <Leaders {...props} />
           </Route>
         </Switch>
       </Router>

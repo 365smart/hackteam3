@@ -45,7 +45,8 @@ function QuizPage(props) {
         nextId={nextId}
         history={history}
       ></Card>
-      {/* <LinkButton to={"/quiz/" + nextId}>Next Question</LinkButton>*/}
+      {/* <Link to="/">About</Link> */}
+      {/* <Link to={"/quiz/" + nextId}>next</Link> */}
     </Container>
   );
 }

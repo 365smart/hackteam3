@@ -42,14 +42,17 @@ class LobbyPage extends React.Component {
   }
 
   countdown() {
-    let { countdownSec } = this.state;
+    let { history } = this.props;
+    let { countdownSec, done } = this.state;
     setTimeout(() => {
       countdownSec = countdownSec - 1;
       this.setState({ countdownSec });
       if (countdownSec) {
         this.countdown();
       } else {
-        console.log('todo: go to quizz page');
+        if (done) {
+          history.push('/quiz/1');
+        }
       }
     }, 1000);
   }

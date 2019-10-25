@@ -70,14 +70,14 @@ class Card extends React.Component {
     this.state = {
       timer: DEFAULT_TIMER,
       myAnswer: null,
-      showNext: false,
+      showNext: true,
     }
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
   }
 
   componentDidMount() {
-    this.countdownTimer();
+    this.reset();
   }
 
   reset() {
@@ -110,7 +110,6 @@ class Card extends React.Component {
   handleNextClick() {
     const { history, nextId } = this.props;
     history.push(`/quiz/${nextId}`);
-    this.reset();
   }
 
   handleAnswerClick(id) {
@@ -156,7 +155,7 @@ class Card extends React.Component {
           const right = timer === 0 && id === answerId;
           const pick = timer !== 0 && id === myAnswer;
           return <Answer key={answer.id}
-            disabled={myAnswer != null} pick={pick} wrong={wrong} right={right}
+            disabled={timer === 0} pick={pick} wrong={wrong} right={right}
             onClick={this.handleAnswerClick.bind(this, id)}>{answer.answer}</Answer>
         })}
         {showNext && <Button onClick={this.handleNextClick}>Next</Button>}
