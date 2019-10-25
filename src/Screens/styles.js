@@ -143,8 +143,8 @@ const RoundButton = styled(LinkButton)`
   font-size: 32px;
   padding-top: 2px;
   @media (max-width: 767px){
-    height: 64px;
-    line-height: 64px;
+    font-size: 24px;
+    bottom: 64px;
   }
 `
 const SmallCard = styled(Container)`
