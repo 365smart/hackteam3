@@ -61,8 +61,8 @@ const Answer = styled.button`
 `;
 
 // in seconds
-const DEFAULT_TIMER = 10;
-const WAIT_TIME = 5;
+const DEFAULT_TIMER = 7;
+const WAIT_TIME = 2;
 
 class Card extends React.Component {
   constructor(props) {
@@ -134,7 +134,6 @@ class Card extends React.Component {
       points,
       question,
       answers,
-      name
     } = this.props;
 
     const answerId = question.answerId;

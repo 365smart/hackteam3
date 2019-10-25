@@ -51,6 +51,10 @@ const Input = styled.input`
   &:focus {
     box-shadow: 0 0 0 0.2rem #22212D;
   }
+  @media (max-width: 767px){
+    height: 48px;
+    line-height: 48px;
+  }
 `;
 
 const Button = styled.button`
@@ -72,6 +76,10 @@ const Button = styled.button`
   box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.24);
   &:focus {
     box-shadow: none;
+  }
+  @media (max-width: 767px){
+    height: 48px;
+    line-height: 48px;
   }
 `;
 
@@ -116,6 +124,10 @@ const LinkButton = styled(Link)`
   &:focus {
     box-shadow: none;
   }
+  @media (max-width: 767px){
+    height: 48px;
+    line-height: 48px;
+  }
 `;
 
 const RoundButton = styled(LinkButton)`
@@ -130,6 +142,10 @@ const RoundButton = styled(LinkButton)`
   line-height: 1;
   font-size: 32px;
   padding-top: 2px;
+  @media (max-width: 767px){
+    height: 64px;
+    line-height: 64px;
+  }
 `
 const SmallCard = styled(Container)`
   background: white;

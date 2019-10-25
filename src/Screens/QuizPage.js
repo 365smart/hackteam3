@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  Link, useParams, useHistory
+  useParams, useHistory
 } from 'react-router-dom';
 import Card from './Card';
 import {
   Container,
   Header,
-  LinkButton
 } from './styles';
 
 
@@ -18,7 +17,6 @@ function shuffleArray(array) {
     array[j] = temp;
   }
 }
-
 
 function QuizPage(props) {
   let { id } = useParams();
