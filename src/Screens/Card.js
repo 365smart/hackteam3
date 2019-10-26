@@ -61,7 +61,7 @@ const Answer = styled.button`
 `;
 
 // in seconds
-const DEFAULT_TIMER = 7;
+const DEFAULT_TIMER = 10;
 const WAIT_TIME = 2;
 
 class Card extends React.Component {

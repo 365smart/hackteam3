@@ -9,7 +9,7 @@ import {
 
 import { LobbyPage, QuizPage, ResultsPage, Leaderboard } from './Screens';
 import styled from 'styled-components';
-import ReactPlayer from 'react-player';
+import ReactAudioPlayer from 'react-audio-player';
 
 const Global = styled.div`
   height: 100vh;
@@ -71,7 +71,13 @@ function App(props) {
           </Route>
         </Switch>
       </Router>
-      <ReactPlayer volume={.1} style={{opacity: '0', pointerEvents: 'none'}} url='https://www.youtube.com/watch?v=w64hc_uHysA' playing />
+      <ReactAudioPlayer
+        src="chilli.m4a"
+        autoPlay
+        controls
+        volume={.05}
+        style={{height: '32px', width: '32px', opacity: '0'}}
+      />
     </Global>
   );
 }
