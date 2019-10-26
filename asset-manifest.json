@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/hackteam3/static/css/main.6b97dc4a.chunk.css",
-    "main.js": "/hackteam3/static/js/main.e5610ccb.chunk.js",
-    "main.js.map": "/hackteam3/static/js/main.e5610ccb.chunk.js.map",
+    "main.js": "/hackteam3/static/js/main.b1510f2a.chunk.js",
+    "main.js.map": "/hackteam3/static/js/main.b1510f2a.chunk.js.map",
     "runtime-main.js": "/hackteam3/static/js/runtime-main.32eac3f8.js",
     "runtime-main.js.map": "/hackteam3/static/js/runtime-main.32eac3f8.js.map",
     "static/js/2.522592c9.chunk.js": "/hackteam3/static/js/2.522592c9.chunk.js",
     "static/js/2.522592c9.chunk.js.map": "/hackteam3/static/js/2.522592c9.chunk.js.map",
     "index.html": "/hackteam3/index.html",
-    "precache-manifest.007d24580f13845d188ae07543342cac.js": "/hackteam3/precache-manifest.007d24580f13845d188ae07543342cac.js",
+    "precache-manifest.c427c3a9e2d883ae3a674a05b9664dcd.js": "/hackteam3/precache-manifest.c427c3a9e2d883ae3a674a05b9664dcd.js",
     "service-worker.js": "/hackteam3/service-worker.js",
     "static/css/main.6b97dc4a.chunk.css.map": "/hackteam3/static/css/main.6b97dc4a.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.32eac3f8.js",
     "static/js/2.522592c9.chunk.js",
     "static/css/main.6b97dc4a.chunk.css",
-    "static/js/main.e5610ccb.chunk.js"
+    "static/js/main.b1510f2a.chunk.js"
   ]
 }
