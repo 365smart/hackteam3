@@ -75,7 +75,7 @@ function App(props) {
         src="chilli.m4a"
         autoPlay
         controls
-        volume={.05}
+        volume={.1}
         style={{height: '32px', width: '32px', opacity: '0'}}
       />
     </Global>

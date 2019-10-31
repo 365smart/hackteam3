@@ -7,6 +7,7 @@ import {
   Container,
   Header,
 } from './styles';
+import {useSpring, animated} from 'react-spring'
 
 
 function shuffleArray(array) {
@@ -36,10 +37,12 @@ function QuizPage(props) {
 
   let playerScore = parseInt(sessionStorage.getItem('player_score') || 0);
   points += playerScore;
+  const slide = useSpring({right: '10px', from: {right: '-100vw'}});
 
   return (
     <Container>
       <Header>Question {id} <span role='img' aria-label="think">🤔</span></Header>
+      <animated.div style={slide}>
       <Card
         users={users}
         points={points}
@@ -48,6 +51,7 @@ function QuizPage(props) {
         nextId={nextId}
         history={history}
       ></Card>
+      </animated.div>
       {/* <Link to="/">About</Link> */}
       {/* <Link to={"/quiz/" + nextId}>next</Link> */}
     </Container>

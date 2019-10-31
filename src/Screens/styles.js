@@ -107,6 +107,7 @@ const QuestionCard = styled.div`
   align-items: center;
   flex-direction: column;
   max-width: 480px;
+  position: relative;
 `;
 
 const LinkButton = styled(Link)`
